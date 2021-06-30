@@ -49,6 +49,7 @@
     <Compile Include="FSData\Altitude.cs" />
     <Compile Include="FSData\Engines.cs" />
     <Compile Include="FSData\Flaps.cs" />
+    <Compile Include="Logging\FlightLog.cs" />
     <Compile Include="FSData\FSData.cs" />
     <Compile Include="FSData\Fuel.cs" />
     <Compile Include="FSData\FuelUnits.cs" />
