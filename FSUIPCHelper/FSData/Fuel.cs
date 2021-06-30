@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FSUIPC;
-using FSUIPCHelper.Config;
 using FSUIPCHelper.Logging;
 
 namespace FSUIPCHelper.FSData
@@ -44,11 +43,6 @@ namespace FSUIPCHelper.FSData
         /// Gets or Sets the quantity of fuel at the start of the flight
         /// </summary>
         public static int StartFuel { get; set; }
-
-        public static int UsedFuel
-        {
-            get { return StartFuel - CurrentFuel(Settings.GetCurrentAirline().FuelUnit); }
-        }
         #endregion
 
         #region Public Methods
@@ -56,9 +50,12 @@ namespace FSUIPCHelper.FSData
         /// Returns the aircrafts current fuel weight
         /// </summary>
         /// <returns>Fuel weight as an integer</returns>
-        public static int CurrentFuel()
+        public static int CurrentFuel(FuelUnits units)
         {
-            return CurrentFuel(Settings.GetCurrentAirline().FuelUnit);
+            if (units == FuelUnits.Lbs)
+                return Convert.ToInt32(GetRawFuel());
+            else
+                return Convert.ToInt32(GetRawFuel() * 0.45359);
         }
 
         /// <summary>
@@ -68,28 +65,21 @@ namespace FSUIPCHelper.FSData
         {
             StartFuel = 0;
         }
-        /// <summary>
-        /// Gets the fuel unit type for the current airline
-        /// </summary>
-        /// <returns>Pounds (LBS) or Kilograms (KGS)</returns>
-        public static string GetFuelUnit()
-        {
-            switch (Settings.GetCurrentAirline().FuelUnit)
-            {
-                default:
-                case FuelUnits.Lbs:
-                    return "lbs";
-                case FuelUnits.Kgs:
-                    return "kgs";
-            }
-        }
+
         /// <summary>
         /// Current fuel quantity with fuel unit
         /// </summary>
         /// <returns>Returns the current fuel quantity with fuel unit</returns>
-        public static string GetCurrentFuelS()
+        public static string GetCurrentFuelS(FuelUnits fuelUnit)
         {
-            return CurrentFuel().ToString() + GetFuelUnit();
+            if (fuelUnit == FuelUnits.Lbs)
+            {
+                return CurrentFuel(fuelUnit).ToString() + "lbs";
+            }
+            else
+            {
+                return CurrentFuel(fuelUnit).ToString() + "kgs";
+            }
         }
         #endregion
 
@@ -139,13 +129,6 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed converting fuel percentage and capacity to weight", TraceLevel.Error, e);
                 return 0;
             }
-        }
-        private static int CurrentFuel(FuelUnits units)
-        {
-            if (units == FuelUnits.Lbs)
-                return Convert.ToInt32(GetRawFuel());
-            else
-                return Convert.ToInt32(GetRawFuel() * 0.45359);
         }
         #endregion
     }
