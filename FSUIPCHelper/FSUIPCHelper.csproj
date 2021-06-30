@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSUIPCClient, Version=1.3.2758.28, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>FSUIPC\FSUIPCClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +45,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="FSData\Aircraft.cs" />
+    <Compile Include="FSData\Altitude.cs" />
+    <Compile Include="FSData\Engines.cs" />
+    <Compile Include="FSData\Flaps.cs" />
+    <Compile Include="Logging\FlightLog.cs" />
+    <Compile Include="FSData\FSData.cs" />
+    <Compile Include="FSData\Fuel.cs" />
+    <Compile Include="FSData\FuelUnits.cs" />
+    <Compile Include="FSData\Heading.cs" />
+    <Compile Include="FSData\Lights.cs" />
+    <Compile Include="FSData\Position.cs" />
+    <Compile Include="FSData\Radios.cs" />
+    <Compile Include="FSData\Simulator.cs" />
+    <Compile Include="FSData\Speed.cs" />
+    <Compile Include="Global\Exit.cs" />
+    <Compile Include="Global\ExitCode.cs" />
+    <Compile Include="Global\Fsuipc.cs" />
+    <Compile Include="Global\Metar.cs" />
+    <Compile Include="Global\Version.cs" />
+    <Compile Include="IO\FileList.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\TraceLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FSUIPC\FSUIPCClient.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
