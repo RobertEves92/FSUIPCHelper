@@ -1,6 +1,6 @@
+using FSUIPCHelper.IO;
 using System;
 using System.IO;
-using FSUIPCHelper.IO;
 
 namespace FSUIPCHelper.Logging
 {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
+using System.Collections;
 
 namespace FSUIPCHelper.FSData
 {
@@ -61,76 +58,16 @@ namespace FSUIPCHelper.FSData
         #endregion
 
         #region Current Status Getters
-        private static bool NavigationStatus
-        {
-            get
-            {
-                return offsetLights.Value[0];
-            }
-        }
-        private static bool BeaconStatus
-        {
-            get
-            {
-                return offsetLights.Value[1];
-            }
-        }
-        private static bool LandingStatus
-        {
-            get
-            {
-                return offsetLights.Value[2];
-            }
-        }
-        private static bool TaxiStatus
-        {
-            get
-            {
-                return offsetLights.Value[3];
-            }
-        }
-        private static bool StrobeStatus
-        {
-            get
-            {
-                return offsetLights.Value[4];
-            }
-        }
-        private static bool InstrumentStatus
-        {
-            get
-            {
-                return offsetLights.Value[5];
-            }
-        }
-        private static bool RecognitionStatus
-        {
-            get
-            {
-                return offsetLights.Value[6];
-            }
-        }
-        private static bool WingStatus
-        {
-            get
-            {
-                return offsetLights.Value[7];
-            }
-        }
-        private static bool LogoStatus
-        {
-            get
-            {
-                return offsetLights.Value[8];
-            }
-        }
-        private static bool CabinStatus
-        {
-            get
-            {
-                return offsetLights.Value[9];
-            }
-        }
+        private static bool NavigationStatus => offsetLights.Value[0];
+        private static bool BeaconStatus => offsetLights.Value[1];
+        private static bool LandingStatus => offsetLights.Value[2];
+        private static bool TaxiStatus => offsetLights.Value[3];
+        private static bool StrobeStatus => offsetLights.Value[4];
+        private static bool InstrumentStatus => offsetLights.Value[5];
+        private static bool RecognitionStatus => offsetLights.Value[6];
+        private static bool WingStatus => offsetLights.Value[7];
+        private static bool LogoStatus => offsetLights.Value[8];
+        private static bool CabinStatus => offsetLights.Value[9];
         #endregion
 
         #region Update Methods

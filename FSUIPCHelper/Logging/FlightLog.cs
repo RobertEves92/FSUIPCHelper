@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace FSUIPCHelper.Logging
@@ -26,7 +25,7 @@ namespace FSUIPCHelper.Logging
 
             return sb.ToString();
         }
-        
+
 
         /// <summary>
         /// Add a time stamped note to the flight log

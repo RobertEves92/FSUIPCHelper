@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,29 +10,29 @@ namespace FSUIPCHelper.FSData
     public static class Fuel
     {
         #region Offsets
-        private readonly static Offset<short> offsetFuelWeightLbs = new Offset<short>(2804);
-        private readonly static Offset<int> offsetCentreTankLevel = new Offset<int>(2932);
-        private readonly static Offset<int> offsetLeftMainTankLevel = new Offset<int>(2940);
-        private readonly static Offset<int> offsetLeftAuxTankLevel = new Offset<int>(2948);
-        private readonly static Offset<int> offsetLeftTipTankLevel = new Offset<int>(2956);
-        private readonly static Offset<int> offsetRightMainTankLevel = new Offset<int>(2964);
-        private readonly static Offset<int> offsetRightAuxTankLevel = new Offset<int>(2972);
-        private readonly static Offset<int> offsetRightTipTankLevel = new Offset<int>(2980);
-        private readonly static Offset<int> offsetCenterTankCapacity = new Offset<int>(2936);
-        private readonly static Offset<int> offsetLeftMainTankCapacity = new Offset<int>(2944);
-        private readonly static Offset<int> offsetLeftAuxTankCapacity = new Offset<int>(2952);
-        private readonly static Offset<int> offsetLeftTipTankCapacity = new Offset<int>(2960);
-        private readonly static Offset<int> offsetRightMainTankCapacity = new Offset<int>(2968);
-        private readonly static Offset<int> offsetRightAuxTankCapacity = new Offset<int>(2976);
-        private readonly static Offset<int> offsetRightTipTankCapacity = new Offset<int>(2984);
-        private readonly static Offset<int> offsetCenter2TankCapacity = new Offset<int>(4680);
-        private readonly static Offset<int> offsetCenter3TankCapacity = new Offset<int>(4688);
-        private readonly static Offset<int> offsetCenter2TankLevel = new Offset<int>(4676);
-        private readonly static Offset<int> offsetCenter3TankLevel = new Offset<int>(4684);
-        private readonly static Offset<int> offsetExternal1TankLevel = new Offset<int>(4692);
-        private readonly static Offset<int> offsetExternal2TankLevel = new Offset<int>(4700);
-        private readonly static Offset<int> offsetExternal1TankCapacity = new Offset<int>(4696);
-        private readonly static Offset<int> offsetExternal2TankCapacity = new Offset<int>(4704);
+        private static readonly Offset<short> offsetFuelWeightLbs = new Offset<short>(2804);
+        private static readonly Offset<int> offsetCentreTankLevel = new Offset<int>(2932);
+        private static readonly Offset<int> offsetLeftMainTankLevel = new Offset<int>(2940);
+        private static readonly Offset<int> offsetLeftAuxTankLevel = new Offset<int>(2948);
+        private static readonly Offset<int> offsetLeftTipTankLevel = new Offset<int>(2956);
+        private static readonly Offset<int> offsetRightMainTankLevel = new Offset<int>(2964);
+        private static readonly Offset<int> offsetRightAuxTankLevel = new Offset<int>(2972);
+        private static readonly Offset<int> offsetRightTipTankLevel = new Offset<int>(2980);
+        private static readonly Offset<int> offsetCenterTankCapacity = new Offset<int>(2936);
+        private static readonly Offset<int> offsetLeftMainTankCapacity = new Offset<int>(2944);
+        private static readonly Offset<int> offsetLeftAuxTankCapacity = new Offset<int>(2952);
+        private static readonly Offset<int> offsetLeftTipTankCapacity = new Offset<int>(2960);
+        private static readonly Offset<int> offsetRightMainTankCapacity = new Offset<int>(2968);
+        private static readonly Offset<int> offsetRightAuxTankCapacity = new Offset<int>(2976);
+        private static readonly Offset<int> offsetRightTipTankCapacity = new Offset<int>(2984);
+        private static readonly Offset<int> offsetCenter2TankCapacity = new Offset<int>(4680);
+        private static readonly Offset<int> offsetCenter3TankCapacity = new Offset<int>(4688);
+        private static readonly Offset<int> offsetCenter2TankLevel = new Offset<int>(4676);
+        private static readonly Offset<int> offsetCenter3TankLevel = new Offset<int>(4684);
+        private static readonly Offset<int> offsetExternal1TankLevel = new Offset<int>(4692);
+        private static readonly Offset<int> offsetExternal2TankLevel = new Offset<int>(4700);
+        private static readonly Offset<int> offsetExternal1TankCapacity = new Offset<int>(4696);
+        private static readonly Offset<int> offsetExternal2TankCapacity = new Offset<int>(4704);
         #endregion
 
         #region Getter
@@ -53,9 +50,13 @@ namespace FSUIPCHelper.FSData
         public static int CurrentFuel(FuelUnits units)
         {
             if (units == FuelUnits.Lbs)
+            {
                 return Convert.ToInt32(GetRawFuel());
+            }
             else
+            {
                 return Convert.ToInt32(GetRawFuel() * 0.45359);
+            }
         }
 
         /// <summary>

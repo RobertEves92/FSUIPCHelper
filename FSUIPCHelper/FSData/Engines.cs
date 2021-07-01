@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -45,9 +42,13 @@ namespace FSUIPCHelper.FSData
             get
             {
                 if (offsetEngine1.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         private static bool Engine2Status
@@ -55,9 +56,13 @@ namespace FSUIPCHelper.FSData
             get
             {
                 if (offsetEngine2.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         private static bool Engine3Status
@@ -65,9 +70,13 @@ namespace FSUIPCHelper.FSData
             get
             {
                 if (offsetEngine3.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         private static bool Engine4Status
@@ -75,9 +84,13 @@ namespace FSUIPCHelper.FSData
             get
             {
                 if (offsetEngine4.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -90,9 +103,13 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         /// <summary>
@@ -104,9 +121,13 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 1)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         /// <summary>
@@ -118,9 +139,13 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 2)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         /// <summary>
@@ -132,9 +157,13 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 3)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         #endregion

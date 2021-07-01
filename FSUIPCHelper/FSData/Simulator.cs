@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,7 +10,7 @@ namespace FSUIPCHelper.FSData
     public static class Simulator
     {
         #region Offsets
-        private static readonly Offset<Int16> offsetFSVersion = new Offset<Int16>(13064);
+        private static readonly Offset<short> offsetFSVersion = new Offset<short>(13064);
         private static readonly Offset<short> offsetFSPause = new Offset<short>(612);
         #endregion
 
@@ -72,10 +69,14 @@ namespace FSUIPCHelper.FSData
         {
             get
             {
-                    if (offsetFSPause.Value == 1)
-                        return true;
-                    else
-                        return false;
+                if (offsetFSPause.Value == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
         #endregion
@@ -110,7 +111,7 @@ namespace FSUIPCHelper.FSData
         /// </summary>
         public static void ClearSimulator()
         {
-           IsPaused = false;
+            IsPaused = false;
         }
         #endregion
     }

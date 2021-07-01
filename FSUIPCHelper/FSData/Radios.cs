@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -122,13 +119,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        private static string TransponderStatus
-        {
-            get
-            {
-                return Convert.ToInt32(offsetTransponder.Value).ToString("X4");
-            }
-        }
+        private static string TransponderStatus => Convert.ToInt32(offsetTransponder.Value).ToString("X4");
         #endregion
 
         #region Update Methods

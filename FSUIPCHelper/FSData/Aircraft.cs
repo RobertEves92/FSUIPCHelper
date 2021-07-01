@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -86,7 +83,7 @@ namespace FSUIPCHelper.FSData
             {
                 try
                 {
-                    return Convert.ToInt32((double)offsetPitchAngle.Value * 8.38190317153931E-08) * -1;
+                    return Convert.ToInt32(offsetPitchAngle.Value * 8.38190317153931E-08) * -1;
                 }
                 catch (Exception e)
                 {
@@ -102,7 +99,7 @@ namespace FSUIPCHelper.FSData
         {
             get
             {
-                int ba = Convert.ToInt32((double)offsetBankAngle.Value * 8.38190317153931E-08);
+                int ba = Convert.ToInt32(offsetBankAngle.Value * 8.38190317153931E-08);
                 if (ba > -1 && ba < 1)
                 {
                     return "0 (Level)";
@@ -126,9 +123,13 @@ namespace FSUIPCHelper.FSData
             get
             {
                 if (offsetParkingBrake.Value > 1000)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         private static bool LandingGearStatus
@@ -137,9 +138,13 @@ namespace FSUIPCHelper.FSData
             {
                 int gear = offsetGearNose.Value + offsetGearLeft.Value + offsetGearRight.Value;
                 if (gear == 0)
+                {
                     return false; //up
+                }
                 else
+                {
                     return true; //down
+                }
             }
         }
         /// <summary>
@@ -211,7 +216,7 @@ namespace FSUIPCHelper.FSData
         {
             try
             {
-                LandingRate = Convert.ToInt32((double)offsetLandingRate.Value * 0.768946875);
+                LandingRate = Convert.ToInt32(offsetLandingRate.Value * 0.768946875);
             }
             catch (Exception e)
             {

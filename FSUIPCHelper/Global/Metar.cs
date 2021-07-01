@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FSUIPCHelper.Logging;
+using System;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using FSUIPCHelper.Logging;
 
 namespace FSUIPCHelper.Global
 {
