@@ -11,9 +11,9 @@ namespace FSUIPCHelper.Global
     public static class Version
     {
         /// <summary>
-        /// Returns the version number of Vacars from AssemblyInfo
+        /// Returns the version number of FSUIPCHelper from AssemblyInfo
         /// </summary>
-        /// <returns>Returns the version number of Vacars from AssemblyInfo</returns>
+        /// <returns>Returns the version number of FSUIPCHelper from AssemblyInfo</returns>
         public static string GetVersion()
         {
             StringBuilder sb = new StringBuilder();
