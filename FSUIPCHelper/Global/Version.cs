@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 namespace FSUIPCHelper.Global
 {
@@ -34,9 +31,9 @@ namespace FSUIPCHelper.Global
                 sb.AppendFormat(".0.{0}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Build);
             }
 
-            #if DEBUG
+#if DEBUG
             sb.Append(" - DEBUG");
-            #endif
+#endif
 
             return sb.ToString();
         }

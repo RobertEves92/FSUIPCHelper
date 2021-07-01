@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,13 +10,16 @@ namespace FSUIPCHelper.FSData
     public static class Altitude
     {
         #region Offsets
+
         private static readonly Offset<int> offsetAircraftAltitude = new Offset<int>(1396);
         private static readonly Offset<double> offsetStdAltitude = new Offset<double>(13488);
         private static readonly Offset<short> offsetGndAltitude = new Offset<short>(2892);
         private static readonly Offset<short> offsetVerticalSpeed = new Offset<short>(2114);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         /// <summary>
         /// Returns the aircrafts altitude accounting for pressure settings
         /// </summary>
@@ -78,7 +78,7 @@ namespace FSUIPCHelper.FSData
             {
                 try
                 {
-                    return Convert.ToInt32((double)offsetAircraftAltitude.Value * 3.28084);
+                    return Convert.ToInt32(offsetAircraftAltitude.Value * 3.28084);
                 }
                 catch (Exception e)
                 {
@@ -126,7 +126,7 @@ namespace FSUIPCHelper.FSData
             {
                 try
                 {
-                    return Convert.ToInt32((double)offsetGndAltitude.Value * 3.28084);
+                    return Convert.ToInt32(offsetGndAltitude.Value * 3.28084);
                 }
                 catch (Exception e)
                 {
@@ -165,13 +165,20 @@ namespace FSUIPCHelper.FSData
                 int vs = Convert.ToInt32(offsetVerticalSpeed.Value * -3.28084);
 
                 if (vs > 0)
+                {
                     return "+" + vs + "fpm";
+                }
                 else if (vs < 0)
+                {
                     return "-" + vs + "fpm";
+                }
                 else
+                {
                     return vs + "fpm";
+                }
             }
         }
-        #endregion
+
+        #endregion Getters
     }
 }

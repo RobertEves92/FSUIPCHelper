@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace FSUIPCHelper.IO
 {
@@ -14,12 +11,12 @@ namespace FSUIPCHelper.IO
         /// <summary>
         /// Returns the FSUIPCHelper user specific appdata folder (%APPDATA%\FSUIPCHelper)
         /// </summary>
-        public static string ApplicationDataFolder { get { return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\FSUIPCHelper\\"; } }
+        public static string ApplicationDataFolder => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\FSUIPCHelper\\";
 
         /// <summary>
         /// Returns the path of the FSUIPCHelper log file
         /// </summary>
-        public static string Log { get { return ApplicationDataFolder + "FSUIPCHelper Log.txt"; } }
+        public static string Log => ApplicationDataFolder + "FSUIPCHelper Log.txt";
 
         /// <summary>
         /// Checks for and creates the FSUIPCHelper appdata folder
@@ -27,7 +24,9 @@ namespace FSUIPCHelper.IO
         public static void CreateFolder()
         {
             if (!Directory.Exists(ApplicationDataFolder))
+            {
                 Directory.CreateDirectory(ApplicationDataFolder);
+            }
         }
 
         /// <summary>

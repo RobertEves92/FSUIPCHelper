@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,12 +10,16 @@ namespace FSUIPCHelper.FSData
     public static class Position
     {
         #region Offsets
+
         private static readonly Offset<long> offsetLatitude = new Offset<long>(1376);
         private static readonly Offset<long> offsetLongitude = new Offset<long>(1384);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         #region Formatted
+
         /// <summary>
         /// Gets the Aircrafts Latitude
         /// </summary>
@@ -48,6 +49,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Gets the Aircrafts Longitude
         /// </summary>
@@ -77,8 +79,11 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
+
+        #endregion Formatted
+
         #region Raw
+
         /// <summary>
         /// Gets the Aircrafts Latitude (Raw)
         /// </summary>
@@ -99,6 +104,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Gets the Aircrafts Longitude (Raw)
         /// </summary>
@@ -119,10 +125,13 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
-        #endregion
+
+        #endregion Raw
+
+        #endregion Getters
 
         #region Methods
+
         private static string Format(double dec)
         {
             int sec = (int)Math.Round(dec * 3600);
@@ -135,6 +144,7 @@ namespace FSUIPCHelper.FSData
 
             return coord;
         }
-        #endregion
+
+        #endregion Methods
     }
 }

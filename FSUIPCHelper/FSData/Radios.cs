@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,6 +10,7 @@ namespace FSUIPCHelper.FSData
     public static class Radios
     {
         #region Offsets
+
         private static readonly Offset<short> offsetCom1 = new Offset<short>(846);
         private static readonly Offset<short> offsetCom2 = new Offset<short>(12568);
         private static readonly Offset<short> offsetTransponder = new Offset<short>(852);
@@ -20,32 +18,40 @@ namespace FSUIPCHelper.FSData
         private static readonly Offset<short> offsetNav2 = new Offset<short>(850);
         private static readonly Offset<string> offsetNav1Ident = new Offset<string>(12288, 6);
         private static readonly Offset<string> offsetNav2Ident = new Offset<string>(12319, 6);
-        #endregion
+
+        #endregion Offsets
 
         #region Cached Values
+
         /// <summary>
         /// Returns the current active frequency for COM1
         /// </summary>
         public static string COM1 = "100.00";
+
         /// <summary>
         /// Returns the current active frequency for COM2
         /// </summary>
         public static string COM2 = "100.00";
+
         /// <summary>
         /// Returns the current active frequency for NAV1
         /// </summary>
         public static string NAV1 = "100.00";
+
         /// <summary>
         /// Returns the current active frequency for NAV2
         /// </summary>
         public static string NAV2 = "100.00";
+
         /// <summary>
         /// Returns the current active frequency the transponder
         /// </summary>
         public static string XPDNR = "0000";
-        #endregion
+
+        #endregion Cached Values
 
         #region Current Status Getters
+
         private static string Com1Status
         {
             get
@@ -54,6 +60,7 @@ namespace FSUIPCHelper.FSData
                 return string.Concat("1", raw.Substring(0, 2), ".", raw.Substring(2, 2));
             }
         }
+
         private static string Com2Status
         {
             get
@@ -62,6 +69,7 @@ namespace FSUIPCHelper.FSData
                 return string.Concat("1", raw.Substring(0, 2), ".", raw.Substring(2, 2));
             }
         }
+
         private static string Nav1Status
         {
             get
@@ -70,6 +78,7 @@ namespace FSUIPCHelper.FSData
                 return string.Concat("1", raw.Substring(0, 2), ".", raw.Substring(2, 2));
             }
         }
+
         /// <summary>
         /// Returns the identity code of the active NAV1 frequency
         /// </summary>
@@ -92,6 +101,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         private static string Nav2Status
         {
             get
@@ -100,6 +110,7 @@ namespace FSUIPCHelper.FSData
                 return string.Concat("1", raw.Substring(0, 2), ".", raw.Substring(2, 2));
             }
         }
+
         /// <summary>
         /// Returns the identity code of the active NAV2 frequency
         /// </summary>
@@ -122,16 +133,13 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        private static string TransponderStatus
-        {
-            get
-            {
-                return Convert.ToInt32(offsetTransponder.Value).ToString("X4");
-            }
-        }
-        #endregion
+
+        private static string TransponderStatus => Convert.ToInt32(offsetTransponder.Value).ToString("X4");
+
+        #endregion Current Status Getters
 
         #region Update Methods
+
         /// <summary>
         /// Update and log all radio status changes
         /// </summary>
@@ -143,6 +151,7 @@ namespace FSUIPCHelper.FSData
             UpdateNav2();
             UpdateTransponder();
         }
+
         /// <summary>
         /// Update and log status changes to COM1
         /// </summary>
@@ -161,6 +170,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update COM1 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log status changes to COM2
         /// </summary>
@@ -179,6 +189,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update COM2 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log status changes to NAV1
         /// </summary>
@@ -197,6 +208,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update NAV1 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log status changes to NAV2
         /// </summary>
@@ -215,6 +227,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update NAV2 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log status changes to Transponder
         /// </summary>
@@ -231,11 +244,13 @@ namespace FSUIPCHelper.FSData
                         case "1200":
                             FlightLog.AddLog("XPNDR: " + XPDNR + " (VFR)");
                             break;
+
                         case "7700":
                         case "7600":
                         case "7500":
                             FlightLog.AddLog("XPNDR: " + XPDNR + " (Emergency)");
                             break;
+
                         default:
                             FlightLog.AddLog("XPNDR: " + XPDNR);
                             break;
@@ -247,6 +262,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update XPNDR status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Reset all radio statuses to default ("")
         /// </summary>
@@ -258,6 +274,7 @@ namespace FSUIPCHelper.FSData
             NAV2 = "100.00";
             XPDNR = "0000";
         }
-        #endregion
+
+        #endregion Update Methods
     }
 }

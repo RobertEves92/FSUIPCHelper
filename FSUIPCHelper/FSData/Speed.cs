@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,23 +10,20 @@ namespace FSUIPCHelper.FSData
     public static class Speed
     {
         #region Offsets
+
         private static readonly Offset<int> offsetTrueAirspeed = new Offset<int>(696);
         private static readonly Offset<int> offsetIndicatedAirspeed = new Offset<int>(700);
         private static readonly Offset<int> offsetVerticalSpeed = new Offset<int>(712);
         private static readonly Offset<int> offsetGroundSpeed = new Offset<int>(692);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         /// <summary>
         /// Returns the aircrafts ground speed
         /// </summary>
-        public static int GroundSpeed
-        {
-            get
-            {
-                return Convert.ToInt32((double)(offsetGroundSpeed.Value / 65536) * 1.9438444924406);
-            }
-        }
+        public static int GroundSpeed => Convert.ToInt32(offsetGroundSpeed.Value / 65536 * 1.9438444924406);
 
         /// <summary>
         /// Returns the aircrafts true airspeed in knots
@@ -49,6 +43,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Returns the aircrafts indicated airspeed in knots
         /// </summary>
@@ -67,6 +62,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Returns the aircrafts vertical speeds in ft/min
         /// </summary>
@@ -76,7 +72,7 @@ namespace FSUIPCHelper.FSData
             {
                 try
                 {
-                    return Convert.ToInt32((double)offsetVerticalSpeed.Value * 0.768946875);
+                    return Convert.ToInt32(offsetVerticalSpeed.Value * 0.768946875);
                 }
                 catch (Exception e)
                 {
@@ -85,6 +81,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
+
+        #endregion Getters
     }
 }

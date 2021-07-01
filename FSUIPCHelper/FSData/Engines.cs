@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -13,71 +10,98 @@ namespace FSUIPCHelper.FSData
     public static class Engines
     {
         #region Offsets
+
         private static readonly Offset<short> offsetEngine1 = new Offset<short>(2196);
         private static readonly Offset<short> offsetEngine2 = new Offset<short>(2348);
         private static readonly Offset<short> offsetEngine3 = new Offset<short>(2500);
         private static readonly Offset<short> offsetEngine4 = new Offset<short>(2652);
         private static readonly Offset<short> offsetNumberOfEngines = new Offset<short>(2796);
-        #endregion
+
+        #endregion Offsets
 
         #region Cached Values
+
         /// <summary>
         /// Returns engine running status for engine 1
         /// </summary>
         public static bool Engine1Running = false;
+
         /// <summary>
         /// Returns engine running status for engine 2
         /// </summary>
         public static bool Engine2Running = false;
+
         /// <summary>
         /// Returns engine running status for engine 3
         /// </summary>
         public static bool Engine3Running = false;
+
         /// <summary>
         /// Returns engine running status for engine 4
         /// </summary>
         public static bool Engine4Running = false;
-        #endregion
+
+        #endregion Cached Values
 
         #region Current Status Getters
+
         private static bool Engine1Status
         {
             get
             {
                 if (offsetEngine1.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         private static bool Engine2Status
         {
             get
             {
                 if (offsetEngine2.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         private static bool Engine3Status
         {
             get
             {
                 if (offsetEngine3.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         private static bool Engine4Status
         {
             get
             {
                 if (offsetEngine4.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -90,11 +114,16 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 0)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         /// <summary>
         /// Returns the availability of engine 2
         /// </summary>
@@ -104,11 +133,16 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 1)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         /// <summary>
         /// Returns the availability of engine 3
         /// </summary>
@@ -118,11 +152,16 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 2)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
+
         /// <summary>
         /// Returns the availability of engine 4
         /// </summary>
@@ -132,14 +171,20 @@ namespace FSUIPCHelper.FSData
             {
                 FSUIPCConnection.Process();
                 if (offsetNumberOfEngines.Value > 3)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
-        #endregion
+
+        #endregion Current Status Getters
 
         #region Update Methods
+
         /// <summary>
         /// Updates and logs all engine status changes
         /// </summary>
@@ -150,6 +195,7 @@ namespace FSUIPCHelper.FSData
             UpdateEngine3();
             UpdateEngine4();
         }
+
         /// <summary>
         /// Updates and logs status changes for engine 1
         /// </summary>
@@ -173,6 +219,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update engine 1 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Updates and logs status changes for engine 2
         /// </summary>
@@ -196,6 +243,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update engine 2 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Updates and logs status changes for engine 3
         /// </summary>
@@ -219,6 +267,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update engine 3 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Updates and logs status changes for engine 4
         /// </summary>
@@ -242,6 +291,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update engine 4 status from FSUIPC", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Resets all engine statuses to default (false)
         /// </summary>
@@ -252,6 +302,7 @@ namespace FSUIPCHelper.FSData
             Engine3Running = false;
             Engine4Running = false;
         }
-        #endregion
+
+        #endregion Update Methods
     }
 }

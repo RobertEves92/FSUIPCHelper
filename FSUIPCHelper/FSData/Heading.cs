@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
+using System;
 
 namespace FSUIPCHelper.FSData
 {
@@ -12,20 +9,18 @@ namespace FSUIPCHelper.FSData
     public static class Heading
     {
         #region Offsets
+
         private static readonly Offset<double> offsetWhiskeyHeading = new Offset<double>(716);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         /// <summary>
         /// Gets the value of the aircrafts whiskey compass
         /// </summary>
-        public static string WhiskeyHeading
-        {
-            get
-            {
-                return Convert.ToInt32(offsetWhiskeyHeading.Value).ToString();
-            }
-        }
-        #endregion
+        public static string WhiskeyHeading => Convert.ToInt32(offsetWhiskeyHeading.Value).ToString();
+
+        #endregion Getters
     }
 }

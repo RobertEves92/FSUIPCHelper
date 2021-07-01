@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 using FSUIPCHelper.Logging;
+using System;
+using System.Collections;
 
 namespace FSUIPCHelper.FSData
 {
@@ -14,126 +11,82 @@ namespace FSUIPCHelper.FSData
     public static class Lights
     {
         #region Offset
+
         private static readonly Offset<BitArray> offsetLights = new Offset<BitArray>(3340, 2);
-        #endregion
+
+        #endregion Offset
 
         #region Cached Values
+
         /// <summary>
         /// Returns the status of the navigation lights
         /// </summary>
         public static bool NavigationLights;
+
         /// <summary>
         /// Returns the status of the beacon lights
         /// </summary>
         public static bool BeaconLights;
+
         /// <summary>
         /// Returns the status of the landing lights
         /// </summary>
         public static bool LandingLights;
+
         /// <summary>
         /// Returns the status of the taxi lights
         /// </summary>
         public static bool TaxiLights;
+
         /// <summary>
         /// Returns the status of the strobe lights
         /// </summary>
         public static bool StrobeLights;
+
         /// <summary>
         /// Returns the status of the instrument lights
         /// </summary>
         public static bool InstrumentLights;
+
         /// <summary>
         /// Returns the status of the recognition lights
         /// </summary>
         public static bool RecognitionLights;
+
         /// <summary>
         /// Returns the status of the wing lights
         /// </summary>
         public static bool WingLights;
+
         /// <summary>
         /// Returns the status of the logo lights
         /// </summary>
         public static bool LogoLights;
+
         /// <summary>
         /// Returns the status of the cabin lights
         /// </summary>
         public static bool CabinLights;
-        #endregion
+
+        #endregion Cached Values
 
         #region Current Status Getters
-        private static bool NavigationStatus
-        {
-            get
-            {
-                return offsetLights.Value[0];
-            }
-        }
-        private static bool BeaconStatus
-        {
-            get
-            {
-                return offsetLights.Value[1];
-            }
-        }
-        private static bool LandingStatus
-        {
-            get
-            {
-                return offsetLights.Value[2];
-            }
-        }
-        private static bool TaxiStatus
-        {
-            get
-            {
-                return offsetLights.Value[3];
-            }
-        }
-        private static bool StrobeStatus
-        {
-            get
-            {
-                return offsetLights.Value[4];
-            }
-        }
-        private static bool InstrumentStatus
-        {
-            get
-            {
-                return offsetLights.Value[5];
-            }
-        }
-        private static bool RecognitionStatus
-        {
-            get
-            {
-                return offsetLights.Value[6];
-            }
-        }
-        private static bool WingStatus
-        {
-            get
-            {
-                return offsetLights.Value[7];
-            }
-        }
-        private static bool LogoStatus
-        {
-            get
-            {
-                return offsetLights.Value[8];
-            }
-        }
-        private static bool CabinStatus
-        {
-            get
-            {
-                return offsetLights.Value[9];
-            }
-        }
-        #endregion
+
+        private static bool NavigationStatus => offsetLights.Value[0];
+        private static bool BeaconStatus => offsetLights.Value[1];
+        private static bool LandingStatus => offsetLights.Value[2];
+        private static bool TaxiStatus => offsetLights.Value[3];
+        private static bool StrobeStatus => offsetLights.Value[4];
+        private static bool InstrumentStatus => offsetLights.Value[5];
+        private static bool RecognitionStatus => offsetLights.Value[6];
+        private static bool WingStatus => offsetLights.Value[7];
+        private static bool LogoStatus => offsetLights.Value[8];
+        private static bool CabinStatus => offsetLights.Value[9];
+
+        #endregion Current Status Getters
 
         #region Update Methods
+
         /// <summary>
         /// Update and log all light status changes
         /// </summary>
@@ -150,6 +103,7 @@ namespace FSUIPCHelper.FSData
             UpdateLogo();
             UpdateCabin();
         }
+
         /// <summary>
         /// Update and log the status of the navigation lights
         /// </summary>
@@ -173,6 +127,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update navigation light status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the beacon lights
         /// </summary>
@@ -196,6 +151,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update beacon light status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the landing lights
         /// </summary>
@@ -219,6 +175,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update landing lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the taxi lights
         /// </summary>
@@ -242,6 +199,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update taxi lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the strobe lights
         /// </summary>
@@ -265,6 +223,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update strobe lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the instrument lights
         /// </summary>
@@ -288,6 +247,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update instrument lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the recognition lights
         /// </summary>
@@ -311,6 +271,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update recognition lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the wing lights
         /// </summary>
@@ -334,6 +295,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update wing lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the logo lights
         /// </summary>
@@ -357,6 +319,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update logo lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Update and log the status of the cabin lights
         /// </summary>
@@ -380,6 +343,7 @@ namespace FSUIPCHelper.FSData
                 Log.AddLog("Failed to update cabin lights status", TraceLevel.Warning, e);
             }
         }
+
         /// <summary>
         /// Reset all light statuses to default (false)
         /// </summary>
@@ -396,6 +360,7 @@ namespace FSUIPCHelper.FSData
             LogoLights = false;
             CabinLights = false;
         }
-        #endregion
+
+        #endregion Update Methods
     }
 }

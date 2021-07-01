@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FSUIPC;
+﻿using FSUIPC;
 
 namespace FSUIPCHelper.Global
 {
@@ -18,6 +14,7 @@ namespace FSUIPCHelper.Global
         {
             FSUIPCConnection.Open();
         }
+
         /// <summary>
         /// Close the connection
         /// </summary>
@@ -25,6 +22,7 @@ namespace FSUIPCHelper.Global
         {
             FSUIPCConnection.Close();
         }
+
         /// <summary>
         /// Update data
         /// </summary>
