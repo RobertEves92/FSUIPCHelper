@@ -9,6 +9,7 @@ namespace FSUIPCHelper.FSData
         /// Pounds (LBS)
         /// </summary>
         Lbs = 0x0,
+
         /// <summary>
         /// Kilograms (KGS)
         /// </summary>

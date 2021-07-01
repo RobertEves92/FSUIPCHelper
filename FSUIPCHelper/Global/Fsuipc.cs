@@ -14,6 +14,7 @@ namespace FSUIPCHelper.Global
         {
             FSUIPCConnection.Open();
         }
+
         /// <summary>
         /// Close the connection
         /// </summary>
@@ -21,6 +22,7 @@ namespace FSUIPCHelper.Global
         {
             FSUIPCConnection.Close();
         }
+
         /// <summary>
         /// Update data
         /// </summary>

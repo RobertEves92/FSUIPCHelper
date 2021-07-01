@@ -10,18 +10,23 @@ namespace FSUIPCHelper.FSData
     public static class Simulator
     {
         #region Offsets
+
         private static readonly Offset<short> offsetFSVersion = new Offset<short>(13064);
         private static readonly Offset<short> offsetFSPause = new Offset<short>(612);
-        #endregion
+
+        #endregion Offsets
 
         #region Cached Values
+
         /// <summary>
         /// Returns the simulator pause status
         /// </summary>
         public static bool IsPaused = false;
-        #endregion
+
+        #endregion Cached Values
 
         #region Getters
+
         /// <summary>
         /// Returns the version of flight simulator
         /// </summary>
@@ -35,24 +40,34 @@ namespace FSUIPCHelper.FSData
                     {
                         case 1:
                             return "FS98";
+
                         case 2:
                             return "FS2K";
+
                         case 3:
                             return "CFS2";
+
                         case 4:
                             return "CFS1";
+
                         case 5:
                             return "reserved";
+
                         case 6:
                             return "FS2002";
+
                         case 7:
                             return "FS2004";
+
                         case 8:
                             return "FSX";
+
                         case 9:
                             return "ESP";
+
                         case 10:
                             return "P3D";
+
                         default:
                             FSUIPCConnection.Process();
                             return FSVersion;
@@ -65,6 +80,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         private static bool IsPausedStatus
         {
             get
@@ -79,9 +95,11 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
+
+        #endregion Getters
 
         #region Update Methods
+
         /// <summary>
         /// Update and log changes to pause status
         /// </summary>
@@ -113,6 +131,7 @@ namespace FSUIPCHelper.FSData
         {
             IsPaused = false;
         }
-        #endregion
+
+        #endregion Update Methods
     }
 }

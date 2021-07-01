@@ -26,7 +26,6 @@ namespace FSUIPCHelper.Logging
             return sb.ToString();
         }
 
-
         /// <summary>
         /// Add a time stamped note to the flight log
         /// </summary>

@@ -10,13 +10,16 @@ namespace FSUIPCHelper.FSData
     public static class Altitude
     {
         #region Offsets
+
         private static readonly Offset<int> offsetAircraftAltitude = new Offset<int>(1396);
         private static readonly Offset<double> offsetStdAltitude = new Offset<double>(13488);
         private static readonly Offset<short> offsetGndAltitude = new Offset<short>(2892);
         private static readonly Offset<short> offsetVerticalSpeed = new Offset<short>(2114);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         /// <summary>
         /// Returns the aircrafts altitude accounting for pressure settings
         /// </summary>
@@ -175,6 +178,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
+
+        #endregion Getters
     }
 }

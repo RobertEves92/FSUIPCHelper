@@ -10,13 +10,16 @@ namespace FSUIPCHelper.FSData
     public static class Speed
     {
         #region Offsets
+
         private static readonly Offset<int> offsetTrueAirspeed = new Offset<int>(696);
         private static readonly Offset<int> offsetIndicatedAirspeed = new Offset<int>(700);
         private static readonly Offset<int> offsetVerticalSpeed = new Offset<int>(712);
         private static readonly Offset<int> offsetGroundSpeed = new Offset<int>(692);
-        #endregion
+
+        #endregion Offsets
 
         #region Getters
+
         /// <summary>
         /// Returns the aircrafts ground speed
         /// </summary>
@@ -40,6 +43,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Returns the aircrafts indicated airspeed in knots
         /// </summary>
@@ -58,6 +62,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
+
         /// <summary>
         /// Returns the aircrafts vertical speeds in ft/min
         /// </summary>
@@ -76,6 +81,7 @@ namespace FSUIPCHelper.FSData
                 }
             }
         }
-        #endregion
+
+        #endregion Getters
     }
 }

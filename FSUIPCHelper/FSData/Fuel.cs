@@ -10,6 +10,7 @@ namespace FSUIPCHelper.FSData
     public static class Fuel
     {
         #region Offsets
+
         private static readonly Offset<short> offsetFuelWeightLbs = new Offset<short>(2804);
         private static readonly Offset<int> offsetCentreTankLevel = new Offset<int>(2932);
         private static readonly Offset<int> offsetLeftMainTankLevel = new Offset<int>(2940);
@@ -33,16 +34,20 @@ namespace FSUIPCHelper.FSData
         private static readonly Offset<int> offsetExternal2TankLevel = new Offset<int>(4700);
         private static readonly Offset<int> offsetExternal1TankCapacity = new Offset<int>(4696);
         private static readonly Offset<int> offsetExternal2TankCapacity = new Offset<int>(4704);
-        #endregion
+
+        #endregion Offsets
 
         #region Getter
+
         /// <summary>
         /// Gets or Sets the quantity of fuel at the start of the flight
         /// </summary>
         public static int StartFuel { get; set; }
-        #endregion
+
+        #endregion Getter
 
         #region Public Methods
+
         /// <summary>
         /// Returns the aircrafts current fuel weight
         /// </summary>
@@ -82,9 +87,11 @@ namespace FSUIPCHelper.FSData
                 return CurrentFuel(fuelUnit).ToString() + "kgs";
             }
         }
-        #endregion
+
+        #endregion Public Methods
 
         #region Local Methods
+
         private static double GetRawFuel()
         {
             //NOTE: Returns Lbs
@@ -109,6 +116,7 @@ namespace FSUIPCHelper.FSData
                 return 0;
             }
         }
+
         private static double FuelWeightInTank(int tankLevel, int tankCapacity)
         {
             //NOTE: Returns Lbs
@@ -122,7 +130,7 @@ namespace FSUIPCHelper.FSData
             }
             catch (Exception e)
             {
-                /* 
+                /*
                  * NOTE: Logged as error as this will cause a calculation error
                  * due to returning 0 as the weight of the fuel for a tank
                  * and may cause further problems within the software
@@ -131,6 +139,7 @@ namespace FSUIPCHelper.FSData
                 return 0;
             }
         }
-        #endregion
+
+        #endregion Local Methods
     }
 }

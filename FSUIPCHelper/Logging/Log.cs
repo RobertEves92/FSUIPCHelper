@@ -10,6 +10,7 @@ namespace FSUIPCHelper.Logging
     public static class Log
     {
         #region Public methods
+
         /// <summary>
         /// Add a message to the log
         /// </summary>
@@ -18,6 +19,7 @@ namespace FSUIPCHelper.Logging
         {
             WriteToLog(log);
         }
+
         /// <summary>
         /// Add a message to the log
         /// </summary>
@@ -27,6 +29,7 @@ namespace FSUIPCHelper.Logging
         {
             WriteToLog(log, level);
         }
+
         /// <summary>
         /// Add a message to the log
         /// </summary>
@@ -46,9 +49,11 @@ namespace FSUIPCHelper.Logging
         {
             File.WriteAllText(FileList.Log, "");
         }
-        #endregion
+
+        #endregion Public methods
 
         #region Local methods
+
         private static void WriteToLog(string log)
         {
             string l = string.Format("[{0}] {1}", System.DateTime.Now.ToString(), log);
@@ -68,6 +73,7 @@ namespace FSUIPCHelper.Logging
             tw.Flush();
             tw.Close();
         }
-        #endregion
+
+        #endregion Local methods
     }
 }

@@ -12,18 +12,23 @@ namespace FSUIPCHelper.FSData
         private static bool firstUpdate = true; // stops warning about dividing by zero on the first update
 
         #region Offsets
+
         private static readonly Offset<short> offsetFrequency = new Offset<short>(15354);
         private static readonly Offset<int> offsetPosition = new Offset<int>(3036);
-        #endregion
+
+        #endregion Offsets
 
         #region Cached Value
+
         /// <summary>
         /// Returns the current flap position
         /// </summary>
         public static int FlapPosition = 0;
-        #endregion
+
+        #endregion Cached Value
 
         #region Update Methods
+
         /// <summary>
         /// Updates and logs the flap position status
         /// </summary>
@@ -69,6 +74,7 @@ namespace FSUIPCHelper.FSData
         {
             FlapPosition = 0;
         }
-        #endregion
+
+        #endregion Update Methods
     }
 }
