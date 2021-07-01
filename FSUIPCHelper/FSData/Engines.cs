@@ -160,12 +160,12 @@ namespace FSUIPCHelper.FSData
                 if (Engine1Status && !Engine1Running)
                 {
                     Engine1Running = true;
-                    Flight.FlightLog.AddLog("Engine 1 Started");
+                    FlightLog.AddLog("Engine 1 Started");
                 }
                 else if (Engine1Status == false && Engine1Running)
                 {
                     Engine1Running = false;
-                    Flight.FlightLog.AddLog("Engine 1 Stopped");
+                    FlightLog.AddLog("Engine 1 Stopped");
                 }
             }
             catch (Exception e)
@@ -183,12 +183,12 @@ namespace FSUIPCHelper.FSData
                 if (Engine2Status && !Engine2Running)
                 {
                     Engine2Running = true;
-                    Flight.FlightLog.AddLog("Engine 2 Started");
+                    FlightLog.AddLog("Engine 2 Started");
                 }
                 else if (Engine2Status == false && Engine2Running)
                 {
                     Engine2Running = false;
-                    Flight.FlightLog.AddLog("Engine 2 Stopped");
+                    FlightLog.AddLog("Engine 2 Stopped");
                 }
             }
             catch (Exception e)
@@ -206,12 +206,12 @@ namespace FSUIPCHelper.FSData
                 if (Engine3Status && !Engine3Running)
                 {
                     Engine3Running = true;
-                    Flight.FlightLog.AddLog("Engine 3 Started");
+                    FlightLog.AddLog("Engine 3 Started");
                 }
                 else if (Engine3Status == false && Engine3Running)
                 {
                     Engine3Running = false;
-                    Flight.FlightLog.AddLog("Engine 3 Stopped");
+                    FlightLog.AddLog("Engine 3 Stopped");
                 }
             }
             catch (Exception e)
@@ -229,12 +229,12 @@ namespace FSUIPCHelper.FSData
                 if (Engine4Status && !Engine4Running)
                 {
                     Engine4Running = true;
-                    Flight.FlightLog.AddLog("Engine 4 Started");
+                    FlightLog.AddLog("Engine 4 Started");
                 }
                 else if (Engine4Status == false && Engine4Running)
                 {
                     Engine4Running = false;
-                    Flight.FlightLog.AddLog("Engine 4 Stopped");
+                    FlightLog.AddLog("Engine 4 Stopped");
                 }
             }
             catch (Exception e)

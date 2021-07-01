@@ -5,7 +5,7 @@ using FSUIPCHelper.IO;
 namespace FSUIPCHelper.Logging
 {
     /// <summary>
-    /// CORE/LOGGING: Methods for adding messages to the Vacars log
+    /// CORE/LOGGING: Methods for adding messages to the FSUIPCHelper log
     /// </summary>
     public static class Log
     {
@@ -37,6 +37,14 @@ namespace FSUIPCHelper.Logging
         {
             string l = string.Format("{0}: {1}\r\n\t\tStackTrace:{2}", log, e.Message, e.StackTrace);
             WriteToLog(l, level);
+        }
+
+        /// <summary>
+        /// Clears the FSUIPCHelper log
+        /// </summary>
+        public static void ClearLog()
+        {
+            File.WriteAllText(FileList.Log, "");
         }
         #endregion
 

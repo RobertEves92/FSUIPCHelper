@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using FSUIPC;
 using FSUIPCHelper.Logging;
-using FSUIPCHelper.Flight;
 
 namespace FSUIPCHelper.FSData
 {
