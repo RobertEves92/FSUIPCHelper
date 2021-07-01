@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FSUIPC;
-using FSUIPCHelper.Flight;
 using FSUIPCHelper.Logging;
 
 namespace FSUIPCHelper.FSData
